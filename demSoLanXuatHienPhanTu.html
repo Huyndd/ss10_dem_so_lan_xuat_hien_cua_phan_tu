@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var number = parseInt(prompt("nhập số"))
+    var nums = [];
+    for (var i = 0; i < 100; i++) {
+        nums[i] = Math.floor(Math.random() * 101);
+        nums.sort(function (a, b) {
+            return a - b;
+        })
+    }
+
+    function dispArr(arr) {
+        for (var i = 0; i < arr.length; ++i) {
+            document.write(arr[i] + " ");
+            if (i % 10 == 9) {
+                document.write("</br>");
+            }
+        }
+        if (i % 10 != 0) {
+            document.write("</br>");
+        }
+    }
+
+    dispArr(nums)
+    var count = 0;
+    var poisittion = [];
+
+    function x(arr, data) {
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] == data) {
+                count++;
+                poisittion.push(i);
+            }
+        }
+    }
+
+    x(nums, number)
+    if (count == 0) {
+        document.write("mảng không chứa số này")
+    } else {
+        document.write("Số " + number + " xuất hiện " + count + " lần " + " tại vị trí " + poisittion)
+    }
+</script>
+</body>
+</html>
